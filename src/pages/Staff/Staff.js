@@ -1,4 +1,4 @@
-import React from "react";
+import "./Staff.css";
 
 const Staff = () => {
   return (
@@ -7,3 +7,5 @@ const Staff = () => {
     </div>
   );
 };
+
+export default Staff;

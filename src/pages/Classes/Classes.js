@@ -1,4 +1,4 @@
-import React from "react";
+import "./Classes.css";
 
 const Classes = () => {
   return (
@@ -7,3 +7,5 @@ const Classes = () => {
     </div>
   );
 };
+
+export default Classes;

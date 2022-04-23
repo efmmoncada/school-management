@@ -1,4 +1,4 @@
-import React from "react";
+import "./Locations.css";
 
 const Locations = () => {
   return (
@@ -7,3 +7,5 @@ const Locations = () => {
     </div>
   );
 };
+
+export default Locations;
