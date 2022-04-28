@@ -19,9 +19,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// module.exports = {
-//   resolve: {
-//     fallback: { "url": require.resolve("url/") }
-//   }
-// }

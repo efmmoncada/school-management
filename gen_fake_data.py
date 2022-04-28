@@ -25,10 +25,10 @@ for x in input:
     tempString =  x["location"]["street"] + " "+ x["location"]["city"] + " , "+ x["location"]["state"] + " "+ str(x["location"]["postcode"])
     if re.search(p, tempString):
         temp['staff_id'] = (rand_a[2])
-        temp['name'] = x["last_name"] + " , " + x["first_name"]
-        temp['address'] = tempString
-        temp['phone_number'] = x['phone_number']
-        temp['email'] = x['email']
+        temp['staff_name'] = x["last_name"] + " , " + x["first_name"]
+        temp['staff_address'] = tempString
+        temp['staff_phone_number'] = x['phone_number']
+        temp['staff_email'] = x['email']
         rand_a[2] = rand_a[2]+1
         staff_output.append(temp)
 
@@ -44,9 +44,9 @@ for x in rest_people_list:
     student_temp = {}
     student_temp['student_id'] = (rand_a[0])
     student_temp['class_id'] = (rand_a[1])
-    student_temp['name'] = x['name']
-    student_temp['address'] = x['address']
-    student_temp['email'] = x['email']
+    student_temp['student_name'] = x['staff_name']
+    student_temp['student_address'] = x['staff_address']
+    student_temp['student_email'] = x['staff_email']
     student_temp['student_gpa'] = round(random.uniform(1, 4),2)
 
     student_output.append(student_temp)
