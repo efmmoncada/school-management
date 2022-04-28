@@ -20,8 +20,6 @@ const Home = () => {
 
       <iframe src="https://giphy.com/embed/3ov9jZ0V6gOO0oa98Y" width="480" height="450" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/capoo-cat-3ov9jZ0V6gOO0oa98Y">via GIPHY</a></p>
     </div>
-
-    
   );
 };
 
