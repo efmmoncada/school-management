@@ -1,0 +1,4 @@
+#Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ /~moncadae/cs340/index.html [QSA,L]
