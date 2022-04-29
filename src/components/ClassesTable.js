@@ -4,8 +4,8 @@ import ClassesRow from './ClassesRow';
 
 function ClassesTable({items}) {
     return (
-        <table id="ClassesTable">
-            <caption>List of Classes</caption>
+        <table class="center_table"  id="ClassesTable">
+            {/* <caption>List of Classes</caption> */}
             <thead>
                 <tr>
                     <th>Class_id</th>
@@ -15,6 +15,8 @@ function ClassesTable({items}) {
                     <th>Class_name</th>
                     <th>Class_capacity</th>
                     <th>Class_num_enrolled</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>

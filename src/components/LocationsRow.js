@@ -1,21 +1,20 @@
 import React from "react";
 import { MdOutlineDelete, MdModeEdit} from 'react-icons/md';
 
-function StudentsRow({ item }) {
+function LocationsRow({ item }) {
     return (
         <tr>
-            <td>{item.student_id}</td>
+            <td>{item.location_id}</td>
             <td>{item.class_id}</td>
-            <td>{item.student_name}</td>
-            <td>{item.student_address}</td>
-            <td>{item.student_email}</td>
-            <td>{item.student_gpa}</td>
-            <td><MdModeEdit onClick={() => alert("Editing Student Row")} /></td>
-            <td><MdOutlineDelete onClick={() => alert("Deleting Student Row")} /></td>
+            <td>{item.location_num_of_seats}</td>
+            <td>{item.location_accessibility}</td>
+            <td>{item.location_building}</td>
+            <td><MdModeEdit onClick={() => alert("Editing Location Row")} /></td>
+            <td><MdOutlineDelete onClick={() => alert("Deleting Location Row")} /></td>
         </tr>
     );
 }
 
 
 
-export default StudentsRow;
+export default LocationsRow;

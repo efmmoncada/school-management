@@ -1,26 +1,28 @@
 import React from "react";
-import StudentsRow from './StudentsRow';
+import LocationsRow from './LocationsRow';
 
 
-function StudentsTable({items}) {
+function LocationsTable({items}) {
     return (
-        <table id="StudentsTable">
-            <caption>List of Students</caption>
+        <table class="center_table"  id="LocationsTable">
+            {/* <caption>List of Locations</caption> */}
             <thead>
                 <tr>
-                    <th>Student_id</th>
+                    <th>Location_id</th>
                     <th>Class_id</th>
-                    <th>Student_address</th>
-                    <th>Student_email</th>
-                    <th>Student_gpa</th>
+                    <th>location_num_of_seats</th>
+                    <th>location_accessibility</th>
+                    <th>location_building</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <StudentsRow item={item} key={i} />)}
+                {items.map((item,i) => <LocationsRow item={item} key={i} />)}
             </tbody>
         </table>
     );
 }
 
 
-export default StudentsTable;
+export default LocationsTable;

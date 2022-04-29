@@ -1,26 +1,28 @@
 import React from "react";
-import StudentsRow from './StudentsRow';
+import StaffRow from './StaffRow';
 
 
-function StudentsTable({items}) {
+function StaffTable({items}) {
     return (
-        <table id="StudentsTable">
-            <caption>List of Students</caption>
+        <table class="center_table"  id="StaffTable">
+            {/* <caption>List of Staff</caption> */}
             <thead>
                 <tr>
-                    <th>Student_id</th>
-                    <th>Class_id</th>
-                    <th>Student_address</th>
-                    <th>Student_email</th>
-                    <th>Student_gpa</th>
+                    <th>Staff_id</th>
+                    <th>Staff_name</th>
+                    <th>Staff_address</th>
+                    <th>Staff_phone_number</th>
+                    <th>Staff_email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <StudentsRow item={item} key={i} />)}
+                {items.map((item,i) => <StaffRow item={item} key={i} />)}
             </tbody>
         </table>
     );
 }
 
 
-export default StudentsTable;
+export default StaffTable;
