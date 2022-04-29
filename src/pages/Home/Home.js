@@ -8,15 +8,16 @@ const Home = () => {
       <h1>Home</h1>
 
       <p className='description'>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-        dolorem excepturi sunt voluptate esse, ullam nihil, expedita laborum
-        ipsum praesentium quae quis reprehenderit enim autem facilis similique
-        numquam. Assumenda, excepturi.
+        Welcome the database explorer for the school management system.
+        <br />
+        Use the links below to explore and edit the school's recoreds.
       </p>
-      <Link to='/students'>Students</Link>
-      <Link to='/classes'>Classes</Link>
-      <Link to='/staff'>Staff</Link>
-      <Link to='/locations'>Locations</Link>
+      <div className='nav'>
+        <Link to='/students'>Students</Link>
+        <Link to='/classes'>Classes</Link>
+        <Link to='/staff'>Staff</Link>
+        <Link to='/locations'>Locations</Link>
+      </div>
 
       <iframe
         src='https://giphy.com/embed/3ov9jZ0V6gOO0oa98Y'
