@@ -1,3 +1,4 @@
+import AddClassForm from "../../components/AddClassForm/AddClassForm";
 import "./Classes.css";
 import React from 'react';
 import ClassesTable from '../../components/ClassesTable';
@@ -8,6 +9,7 @@ const Classes = () => {
     <div>
       <h2>Here is a list of classes in your database.</h2>
       <ClassesTable items={ClassesData}/>
+      <AddClassForm />
     </div>
   );
 };
