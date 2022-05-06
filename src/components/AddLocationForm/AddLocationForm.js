@@ -42,6 +42,9 @@ const AddLocationForm = () => {
       <button type='submit' className='add-class-button'>
         Add Location
       </button>
+      <button type='submit' className='add-class-button'>
+        Search Location
+      </button>
     </form>
   );
 };

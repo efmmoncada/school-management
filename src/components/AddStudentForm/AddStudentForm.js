@@ -53,6 +53,9 @@ const AddStudentForm = () => {
       <button type='submit' className='add-student-button'>
         Add Student
       </button>
+      <button type='submit' className='add-student-button'>
+        Search Student
+      </button>
     </form>
   );
 };

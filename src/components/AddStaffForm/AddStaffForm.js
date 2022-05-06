@@ -52,6 +52,9 @@ const AddStaffForm = () => {
       <button type='submit' className='add-staff-button'>
         Add Staff
       </button>
+      <button type='submit' className='add-staff-button'>
+        Search Staff
+      </button>
     </form>
   );
 };
