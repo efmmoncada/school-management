@@ -20,6 +20,7 @@ const Home = () => {
       </div>
 
       <iframe
+        title='Capoo cat'
         src='https://giphy.com/embed/3ov9jZ0V6gOO0oa98Y'
         width='480'
         height='450'
