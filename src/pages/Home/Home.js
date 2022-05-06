@@ -17,6 +17,8 @@ const Home = () => {
         <Link to='/classes'>Classes</Link>
         <Link to='/staff'>Staff</Link>
         <Link to='/locations'>Locations</Link>
+        <Link to='/enrolled_in'>Enrolled In</Link>
+        <Link to='/hosts_in'>Hosts</Link>
       </div>
 
       <iframe
