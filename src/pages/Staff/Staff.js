@@ -1,12 +1,14 @@
 import AddStaffForm from "../../components/AddStaffForm/AddStaffForm";
-import "./Staff.css";
 import StaffTable from "../../components/StaffTable";
 import StaffData from "../../data/staff";
+import Header from "../../components/Header/Header";
+
+import "./Staff.css";
 
 const Staff = () => {
   return (
     <div>
-      {/* <h1>Staff</h1> */}
+      <Header title='Staff' />
       <h2>Here is a list of staff in your database.</h2>
       <StaffTable items={StaffData} />
       <AddStaffForm />

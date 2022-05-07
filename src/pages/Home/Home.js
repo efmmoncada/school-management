@@ -1,25 +1,17 @@
-import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 import "./Home.css";
 
 const Home = () => {
   return (
     <div className='home'>
-      <h1>Home</h1>
+      <Header title='Home' />
 
       <p className='description'>
         Welcome the database explorer for the school management system.
         <br />
-        Use the links below to explore and edit the school's recoreds.
+        Use the links above to explore and edit the school's recoreds.
       </p>
-      <div className='nav'>
-        <Link to='/students'>Students</Link>
-        <Link to='/classes'>Classes</Link>
-        <Link to='/staff'>Staff</Link>
-        <Link to='/locations'>Locations</Link>
-        <Link to='/enrolled_in'>Enrolled In</Link>
-        <Link to='/hosts_in'>Hosts</Link>
-      </div>
 
       <iframe
         title='Capoo cat'
