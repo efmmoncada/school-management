@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import StaffRow from './StaffRow';
 
-
-function StaffTable({items}) {
+function StaffTable({ items }) {
     return (
-        <table class="center_table"  id="StaffTable">
+        <table className='center_table' id='StaffTable'>
             {/* <caption>List of Staff</caption> */}
             <thead>
                 <tr>
@@ -18,11 +17,12 @@ function StaffTable({items}) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <StaffRow item={item} key={i} />)}
+                {items.map((item, i) => (
+                    <StaffRow item={item} key={i} />
+                ))}
             </tbody>
         </table>
     );
 }
-
 
 export default StaffTable;

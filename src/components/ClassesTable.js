@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import ClassesRow from './ClassesRow';
 
-
-function ClassesTable({items}) {
+function ClassesTable({ items }) {
     return (
-        <table class="center_table"  id="ClassesTable">
+        <table className='center_table' id='ClassesTable'>
             {/* <caption>List of Classes</caption> */}
             <thead>
                 <tr>
@@ -20,11 +19,12 @@ function ClassesTable({items}) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <ClassesRow item={item} key={i} />)}
+                {items.map((item, i) => (
+                    <ClassesRow item={item} key={i} />
+                ))}
             </tbody>
         </table>
     );
 }
-
 
 export default ClassesTable;

@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import LocationsRow from './LocationsRow';
 
-
-function LocationsTable({items}) {
+function LocationsTable({ items }) {
     return (
-        <table class="center_table"  id="LocationsTable">
+        <table className='center_table' id='LocationsTable'>
             {/* <caption>List of Locations</caption> */}
             <thead>
                 <tr>
@@ -18,11 +17,12 @@ function LocationsTable({items}) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <LocationsRow item={item} key={i} />)}
+                {items.map((item, i) => (
+                    <LocationsRow item={item} key={i} />
+                ))}
             </tbody>
         </table>
     );
 }
-
 
 export default LocationsTable;

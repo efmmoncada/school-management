@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import HostsRow from './HostsRow';
 
-
-function HostsTable({items}) {
+function HostsTable({ items }) {
     return (
-        <table class="center_table"  id="HostsTable">
+        <table className='center_table' id='HostsTable'>
             {/* <caption>List of Locations</caption> */}
             <thead>
                 <tr>
@@ -15,11 +14,12 @@ function HostsTable({items}) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <HostsRow item={item} key={i} />)}
+                {items.map((item, i) => (
+                    <HostsRow item={item} key={i} />
+                ))}
             </tbody>
         </table>
     );
 }
-
 
 export default HostsTable;

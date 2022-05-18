@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import EnrolledInRow from './EnrolledInRow';
 
-
-function EnrolledInTable({items}) {
+function EnrolledInTable({ items }) {
     return (
-        <table class="center_table"  id="Enrolled_InTable">
+        <table className='center_table' id='Enrolled_InTable'>
             {/* <caption>List of Locations</caption> */}
             <thead>
                 <tr>
@@ -15,11 +14,12 @@ function EnrolledInTable({items}) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item,i) => <EnrolledInRow item={item} key={i} />)}
+                {items.map((item, i) => (
+                    <EnrolledInRow item={item} key={i} />
+                ))}
             </tbody>
         </table>
     );
 }
-
 
 export default EnrolledInTable;
