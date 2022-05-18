@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# CS 340 - School Managment System Database
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Authors: Mark Ser and Emmanuel Moncada
 
-## Available Scripts
+This repo is home to the front end interface of our CS 340 Databases project. It aims to replicate and simulate an admin portal for high school record keeping database.
 
-In the project directory, you can run:
+The front end for this project uses [React](https://reactjs.org) and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+The backend uses [Flask](https://flask.palletsprojects.com/en/2.1.x/) and is hosted on the Oregon State University Engineering Servers.
 
-Runs the app in the development mode.\
+## Problem Statement
+
+An old high school is still running on paper records and is looking for a 21th century solution to replace this archaic system. This high school will contain a minimum of 100 classes, where a class is an individual subject area. The database website would allow staff to add additional class offerings into the database system, e.g. additional AP/IB classes. Additionally, we propose a database driven website will help the high school staff query through thousands of records of their students, staff, and classes that are offered through a simple website. The high school staff would be able to view the website through a simple, secured, url link. This would allow them to query through a search search bar for a certain student or a certain class that they would want information. Additionally, the high school staff members would be able to get transcripts for students more easily through a simple query compared to rustling through thousands of cabinet files.
+
+## Database Design
+
+Our database consists of 4 entities:
+
+-   Students
+-   Staff
+-   Classes
+-   Locations
+
+## ER Diagram and Schema
+
+-   Our ER diagram can be found [here](https://drive.google.com/file/d/19j09UC1kbVsydUF7gPnftCNQnHco8gsc/view?usp=sharing)
+-   Our database schema can be found [here](https://drive.google.com/file/d/1q8GQWlokviYEuj0vn-WFj1tE-fvWbvGC/view?usp=sharing)
+
+---
+
+## Running this app locally
+
+If you would like to run this app yourself, first clone the repo.
+
+From there, In the project directory, you can run `npm start`
+
+This will run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The page will reload when you make changes.
