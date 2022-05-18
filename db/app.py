@@ -8,8 +8,8 @@ def read_mysql_config(mysql_config_file_name: str):
     config.read(mysql_config_file_name)
     return dict(config['client'])
 
-
-config_info = read_mysql_config("db_login_serm.js")
+# rename the db_login_[onid] or comment out :)
+config_info = read_mysql_config("./db_login_serm.js")
 
 db_conn = MySQLdb.connect(config_info['host'],
                           config_info['user'],

@@ -38,3 +38,15 @@ This will run the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
+
+
+
+## Database Configure
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export FLASK_ENV=development
+python -m flask run -h 0.0.0.0 -p [select port value]
+```
+
