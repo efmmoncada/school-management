@@ -58,6 +58,8 @@ gunicorn -b 0.0.0.0:[select port value] -D app:app
 kill gunicorn by first finding the port value you have it running on
 ```
 ps axwf | less
+or
+pkill -u [onid] gunicorn
 ```
 
 then use ```kill -9 [PID]``` and replace PID with the PID that you gotten in the previous step
