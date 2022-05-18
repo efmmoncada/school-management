@@ -2,6 +2,7 @@
 
 # db login stuff
 db_login_*.js
+venv/
 
 # dependencies
 /node_modules
