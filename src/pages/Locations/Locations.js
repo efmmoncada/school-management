@@ -4,7 +4,7 @@ import LocationsTable from '../../components/LocationsTable';
 import Header from '../../components/Header/Header';
 import useGet from '../../hooks/useGet';
 
-const PORT = process.env.REACT_APP_DB_PORT;
+const PORT = process.env.REACT_APP_DB_PORT || 6900;
 
 const Locations = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');

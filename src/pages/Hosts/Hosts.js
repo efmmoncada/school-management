@@ -6,7 +6,7 @@ import useGet from '../../hooks/useGet';
 
 import './Hosts.css';
 
-const PORT = process.env.REACT_APP_DB_PORT;
+const PORT = process.env.REACT_APP_DB_PORT || 6900;
 
 const Hosts = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');

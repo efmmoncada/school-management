@@ -7,7 +7,7 @@ import useGet from '../../hooks/useGet';
 
 import './Students.css';
 
-const PORT = process.env.REACT_APP_DB_PORT;
+const PORT = process.env.REACT_APP_DB_PORT || 6900;
 
 const Students = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');
