@@ -4,13 +4,13 @@ import LocationsTable from '../../components/LocationsTable';
 import Header from '../../components/Header/Header';
 import useGet from '../../hooks/useGet';
 
-const PORT = process.env.REACT_APP_DB_PORT || 6900;
+const PORT = process.env.REACT_APP_DB_PORT || 6969;
 
 const Locations = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');
 
     useEffect(() => {
-        setUrl(`http://localhost:${PORT}/locations`);
+        setUrl(`http://flip1.engr.oregonstate.edu:${PORT}/locations`);
     });
 
     return (

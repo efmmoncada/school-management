@@ -6,13 +6,13 @@ import useGet from '../../hooks/useGet';
 
 import './EnrolledIn.css';
 
-const PORT = process.env.REACT_APP_DB_PORT || 6900;
+const PORT = process.env.REACT_APP_DB_PORT || 6969;
 
 const EnrolledIn = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');
 
     useEffect(() => {
-        setUrl(`http://localhost:${PORT}/enrolled_in`);
+        setUrl(`http://flip1.engr.oregonstate.edu:${PORT}/enrolled_in`);
     });
 
     return (
