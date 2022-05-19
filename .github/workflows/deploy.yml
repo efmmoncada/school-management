@@ -24,6 +24,7 @@ jobs:
 
       - name: Deploy
         env:
+          REACT_APP_DB_PORT: "6900"
           SSH_KEY_FILE: "ssh_id"
           SOURCE: "build/"
         run: |
