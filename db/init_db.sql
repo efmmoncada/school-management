@@ -191,7 +191,7 @@ VALUES
   );
 
 -- insert a new enrolled_in
-INSERT INTO enrolled_in () 
+INSERT INTO enrolled_in() 
 VALUES 
 (
     (SELECT location_id FROM locations WHERE location_building = "Empire State Building"),
@@ -206,7 +206,7 @@ VALUES
     (SELECT class_id FROM classes WHERE class_name = "Chemistry")
 );
 -- insert a new hosts
-INSERT INTO hosts () 
+INSERT INTO hosts() 
 VALUES 
 (
     (SELECT student_id FROM students WHERE student_name = "rhodes , wyatt"),
