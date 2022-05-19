@@ -17,13 +17,8 @@ const useGet = initalUrl => {
                         'Content-Type': 'application/json',
                     },
                 });
-                console.log(response);
                 const responseBody = await response.json();
                 if (responseBody) setData(Array.from(responseBody.data) || []);
-                console.log(
-                    responseBody.data,
-                    Array.isArray(responseBody.data)
-                );
             } catch (error) {
                 setError(true);
                 console.log(error);
