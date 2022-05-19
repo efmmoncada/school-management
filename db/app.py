@@ -32,8 +32,8 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 # replace with your own login credentials file
-config_info = read_mysql_config(os.environ.get("DB_AUTH_FILE"))
-# config_info = read_mysql_config("./db_login_serm.js")
+# config_info = read_mysql_config(os.environ.get("DB_AUTH_FILE"))
+config_info = read_mysql_config("./db_login_serm.js")
 db_connection = connect_to_database(config_info)
 
 
@@ -409,4 +409,4 @@ def get_hosts():
 
 
 if __name__ == '__main__':
-    app.run(development=True)
+    app.run(host='0.0.0.0', port=6969, debug=True)
