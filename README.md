@@ -50,6 +50,12 @@ export FLASK_ENV=development
 python -m flask run -h 0.0.0.0 -p [select port value]
 ```
 
+using pm2 [https://medium.com/idomongodb/how-to-npm-run-start-at-the-background-%EF%B8%8F-64ddda7c1f1]
+```
+pm2 start app.py --name flask-app --interpreter=python3
+pm2 --name website start npm -- start
+```
+
 keep the database alive with gunicorn
 ```
 gunicorn -b 0.0.0.0:[select port value] -D app:app
