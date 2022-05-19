@@ -53,6 +53,7 @@ python -m flask run -h 0.0.0.0 -p [select port value]
 keep the database alive with gunicorn
 ```
 gunicorn -b 0.0.0.0:[select port value] -D app:app
+gunicorn -w 1 -b 0.0.0.0:[select port value] app:app
 ```
 
 kill gunicorn by first finding the port value you have it running on
