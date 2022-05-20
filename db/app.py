@@ -22,7 +22,7 @@ def connect_to_database(config_info):
     db_connection = MySQLdb.connect(config_info['host'],
                                     config_info['user'],
                                     config_info['password'],
-                                    config_info['database'])
+                                    config_info['database'],)
     return db_connection
 
 
@@ -35,6 +35,9 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # config_info = read_mysql_config(os.environ.get("DB_AUTH_FILE"))
 config_info = read_mysql_config("./db_login_serm.js")
 db_connection = connect_to_database(config_info)
+cursor = db_connection.cursor()
+cursor.execute("SET SESSION wait_timeout=604800")
+cursor.execute("SET SESSION interactive_timeout=604800")
 
 
 @app.route('/students', methods=['POST', 'GET'])

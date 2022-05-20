@@ -12,7 +12,7 @@ const Classes = () => {
     const [{ data, isLoading, error }, setUrl] = useGet('');
 
     useEffect(() => {
-        setUrl(`http://flip1.engr.oregonstate.edu:6969/classes`);
+        setUrl(`http://flip2.engr.oregonstate.edu:6969/classes`);
     });
 
     return (
