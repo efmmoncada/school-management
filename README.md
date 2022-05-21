@@ -39,9 +39,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
 
-
-
 ## Database Configure
+
 ```
 python3 -m venv venv
 source venv/bin/activate
@@ -50,26 +49,9 @@ export FLASK_ENV=development
 python -m flask run -h 0.0.0.0 -p [select port value]
 ```
 
-using pm2 [https://medium.com/idomongodb/how-to-npm-run-start-at-the-background-%EF%B8%8F-64ddda7c1f1]
+using pm2 [https://medium.com/idomongodb/how-to-npm-run-start-at-the-background-%EF%B8%8F-64ddda7c1f1] to keep the application alive:
+
 ```
 pm2 start app.py --name flask-app --interpreter=python3
 pm2 --name website start npm -- start
 ```
-
-keep the database alive with gunicorn
-```
-gunicorn -b 0.0.0.0:[select port value] -D app:app
-gunicorn -w 1 -b 0.0.0.0:[select port value] app:app
-```
-
-kill gunicorn by first finding the port value you have it running on
-```
-ps ax | grep gunicorn
-```
-then use ```kill -9 [PID]``` and replace PID with the PID that you gotten in the previous step
-
-OR
-
-you can just run this command
-`pkill -u [onid] gunicorn`
-however, this will kill all gunicorn instances that you have 
