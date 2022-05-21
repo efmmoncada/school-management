@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const createURI = (url, reqData, method) => {
+const createURI = (url, reqData) => {
     let uri = url;
     if (reqData) {
         uri += '?';
