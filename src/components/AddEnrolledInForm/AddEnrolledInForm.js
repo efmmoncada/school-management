@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddEnrolledInForm = (setUrl, setReqData) => {
+const AddEnrolledInForm = ({ setUrl, setReqData }) => {
     const [student_id, setStudentId] = useState(0);
     const [class_id, setClassId] = useState(0);
 
@@ -10,7 +10,7 @@ const AddEnrolledInForm = (setUrl, setReqData) => {
             student_id: student_id,
             class_id: class_id,
         });
-        setUrl('http://flip2.engr.oregonstate.edu:6969/enrolled');
+        setUrl('http://flip2.engr.oregonstate.edu:6969/enrolled_in');
         console.log('Submitted');
     };
 

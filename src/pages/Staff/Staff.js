@@ -7,10 +7,10 @@ import useGet from '../../hooks/useGet';
 import './Staff.css';
 
 const Staff = () => {
-    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('', {});
 
     useEffect(() => {
-        setUrl('http://flip1.engr.oregonstate.edu:6969/staff');
+        setUrl('http://flip2.engr.oregonstate.edu:6969/staff');
     });
 
     return (

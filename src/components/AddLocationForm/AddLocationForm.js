@@ -1,20 +1,33 @@
 import { useState } from "react";
 
-const AddLocationForm = () => {
+const AddLocationForm = ({ setUrl, setReqData }) => {
   const [numSeats, setNumSeats] = useState(0);
   const [isAccessible, setIsAccessible] = useState(false);
   const [buildingName, setBuildingName] = useState("");
+  const [class_id, setClassID] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    console.log("Submitted");
-    console.log(numSeats);
-    console.log(isAccessible);
-    console.log(buildingName);
-  };
+    setReqData({
+        class_id:class_id,
+        numSeats: numSeats,
+        isAccessible: isAccessible,
+        buildingName: buildingName,
+    });
+    setUrl('http://flip2.engr.oregonstate.edu:6969/locations');
+    console.log('Submitted');
+};
 
   return (
     <form className='add-class-form' onSubmit={handleSubmit}>
+        <label>
+        Class_ID:
+        <input
+          type='number'
+          className='class-capacity-input'
+          onChange={(e) => setClassID(e.target.value)}
+        />
+      </label>
       <label>
         Number of Seats:
         <input

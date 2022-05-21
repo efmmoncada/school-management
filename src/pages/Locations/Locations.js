@@ -7,10 +7,10 @@ import useGet from '../../hooks/useGet';
 const PORT = process.env.REACT_APP_DB_PORT || 6969;
 
 const Locations = () => {
-    const [{ data, isLoading, error }, setUrl] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('', {});
 
     useEffect(() => {
-        setUrl(`http://flip1.engr.oregonstate.edu:${PORT}/locations`);
+        setUrl('http://flip2.engr.oregonstate.edu:6969/locations');
     });
 
     return (
@@ -20,7 +20,7 @@ const Locations = () => {
             {isLoading && <p>Loading...</p>}
             {error && <p>Error :( Please try again</p>}
             {data.length && <LocationsTable items={data} />}
-            <AddLocationForm />
+            <AddLocationForm setUrl={setUrl} setReqData={setReqData} />
         </div>
     );
 };

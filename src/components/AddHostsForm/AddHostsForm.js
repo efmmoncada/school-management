@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddHostsForm = (setUrl, setReqData) => {
+const AddHostsForm = ({ setUrl, setReqData }) => {
     const [location_id, setLocationId] = useState(0);
     const [class_id, setClassId] = useState(0);
 
