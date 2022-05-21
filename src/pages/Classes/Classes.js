@@ -6,10 +6,8 @@ import useGet from '../../hooks/useGet';
 
 import './Classes.css';
 
-const PORT = process.env.REACT_APP_DB_PORT || 6969;
-
 const Classes = () => {
-    const [{ data, isLoading, error }, setUrl] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('');
 
     useEffect(() => {
         setUrl(`http://flip2.engr.oregonstate.edu:6969/classes`);
@@ -22,7 +20,7 @@ const Classes = () => {
             {isLoading && <p>Loading...</p>}
             {error && <p>Error :( Please try again</p>}
             {data.length && <ClassesTable items={data} />}
-            <AddClassForm />
+            <AddClassForm setUrl={setUrl} setReqData={setReqData} />
         </div>
     );
 };

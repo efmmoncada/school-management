@@ -6,13 +6,11 @@ import useGet from '../../hooks/useGet';
 
 import './Staff.css';
 
-const PORT = process.env.REACT_APP_DB_PORT || 6969;
-
 const Staff = () => {
-    const [{ data, isLoading, error }, setUrl] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('');
 
     useEffect(() => {
-        setUrl(`http://flip1.engr.oregonstate.edu:${PORT}/staff`);
+        setUrl('http://flip1.engr.oregonstate.edu:6969/staff');
     });
 
     return (
@@ -22,7 +20,7 @@ const Staff = () => {
             {isLoading && <p>Loading...</p>}
             {error && <p>Error :( Please try again</p>}
             {data.length && <StaffTable items={data} />}
-            <AddStaffForm />
+            <AddStaffForm setUrl={setUrl} setReqData={setReqData} />
         </div>
     );
 };

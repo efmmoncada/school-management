@@ -6,13 +6,11 @@ import useGet from '../../hooks/useGet';
 
 import './Hosts.css';
 
-const PORT = process.env.REACT_APP_DB_PORT || 6969;
-
 const Hosts = () => {
-    const [{ data, isLoading, error }, setUrl] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('');
 
     useEffect(() => {
-        setUrl(`http://flip1.engr.oregonstate.edu:${PORT}/hosts`);
+        setUrl('http://flip1.engr.oregonstate.edu:6969/hosts');
     });
 
     return (
@@ -22,7 +20,7 @@ const Hosts = () => {
             {isLoading && <p>Loading...</p>}
             {error && <p>Error :( Please try again</p>}
             {data.length && <HostsTable items={data} />}
-            <AddHostsForm />
+            <AddHostsForm setUrl={setUrl} setReqData={setReqData} />
         </div>
     );
 };
