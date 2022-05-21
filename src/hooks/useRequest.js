@@ -16,7 +16,7 @@ const createURI = (url, reqData) => {
     return uri;
 };
 
-const useGet = initalUrl => {
+const useRequest = initalUrl => {
     const [url, setUrl] = useState(initalUrl);
     const [reqData, setReqData] = useState({});
     const [data, setData] = useState([]);
@@ -51,4 +51,4 @@ const useGet = initalUrl => {
 
     return [{ data, isLoading, error }, setUrl, setReqData];
 };
-export default useGet;
+export default useRequest;

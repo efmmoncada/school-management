@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import AddClassForm from '../../components/AddClassForm/AddClassForm';
 import ClassesTable from '../../components/ClassesTable';
 import Header from '../../components/Header/Header';
-import useGet from '../../hooks/useGet';
+import useRequest from '../../hooks/useRequest';
 
 import './Classes.css';
 
 const Classes = () => {
-    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useRequest('');
 
     useEffect(() => {
         setUrl(`http://flip2.engr.oregonstate.edu:6969/classes`);

@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import AddLocationForm from '../../components/AddLocationForm/AddLocationForm';
 import LocationsTable from '../../components/LocationsTable';
 import Header from '../../components/Header/Header';
-import useGet from '../../hooks/useGet';
-
-const PORT = process.env.REACT_APP_DB_PORT || 6969;
+import useRequest from '../../hooks/useRequest';
 
 const Locations = () => {
-    const [{ data, isLoading, error }, setUrl, setReqData] = useGet('', {});
+    const [{ data, isLoading, error }, setUrl] = useRequest('');
 
     useEffect(() => {
         setUrl('http://flip2.engr.oregonstate.edu:6969/locations');
