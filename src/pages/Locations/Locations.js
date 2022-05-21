@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 import useRequest from '../../hooks/useRequest';
 
 const Locations = () => {
-    const [{ data, isLoading, error }, setUrl] = useRequest('');
+    const [{ data, isLoading, error }, setUrl, setReqData] = useRequest('');
 
     useEffect(() => {
         setUrl('http://flip2.engr.oregonstate.edu:6969/locations');
