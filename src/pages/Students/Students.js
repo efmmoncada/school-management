@@ -22,7 +22,14 @@ const Students = () => {
 
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <StudentsTable items={data} />}
+            {data.length && (
+                <StudentsTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqBody={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddStudentForm
                 setUrl={setUrl}
                 setReqData={setReqData}

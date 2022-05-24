@@ -1,7 +1,7 @@
 import React from 'react';
 import ClassesRow from './ClassesRow';
 
-function ClassesTable({ items }) {
+function ClassesTable({ items, setUrl, setReqData, setMethod }) {
     return (
         <table className='center_table' id='ClassesTable'>
             {/* <caption>List of Classes</caption> */}
@@ -20,7 +20,13 @@ function ClassesTable({ items }) {
             </thead>
             <tbody>
                 {items.map((item, i) => (
-                    <ClassesRow item={item} key={i} />
+                    <ClassesRow
+                        item={item}
+                        key={i}
+                        setUrl={setUrl}
+                        setReqData={setReqData}
+                        setMethod={setMethod}
+                    />
                 ))}
             </tbody>
         </table>

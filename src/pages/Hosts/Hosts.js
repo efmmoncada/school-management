@@ -21,7 +21,14 @@ const Hosts = () => {
             <h2>Here is a list of Hosts in your database.</h2>
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <HostsTable items={data} />}
+            {data.length && (
+                <HostsTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqData={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddHostsForm
                 setUrl={setUrl}
                 setReqData={setReqData}

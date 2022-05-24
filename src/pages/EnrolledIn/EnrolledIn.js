@@ -21,7 +21,14 @@ const EnrolledIn = () => {
             <h2>Here is a list of Enrolled_In in your database.</h2>
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <EnrolledInTable items={data} />}
+            {data.length && (
+                <EnrolledInTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqData={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddEnrolledInForm
                 setUrl={setUrl}
                 setReqData={setReqData}

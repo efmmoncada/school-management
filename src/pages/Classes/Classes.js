@@ -21,7 +21,14 @@ const Classes = () => {
             <h2>Here is a list of classes in your database.</h2>
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <ClassesTable items={data} />}
+            {data.length && (
+                <ClassesTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqData={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddClassForm
                 setUrl={setUrl}
                 setReqData={setReqData}

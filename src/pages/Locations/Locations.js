@@ -19,7 +19,14 @@ const Locations = () => {
             <h2>Here is a list of locations in your database.</h2>
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <LocationsTable items={data} />}
+            {data.length && (
+                <LocationsTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqData={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddLocationForm
                 setUrl={setUrl}
                 setReqData={setReqData}

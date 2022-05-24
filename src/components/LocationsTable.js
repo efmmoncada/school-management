@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationsRow from './LocationsRow';
 
-function LocationsTable({ items }) {
+function LocationsTable({ items, setUrl, setReqData, setMethod }) {
     return (
         <table className='center_table' id='LocationsTable'>
             {/* <caption>List of Locations</caption> */}
@@ -18,7 +18,13 @@ function LocationsTable({ items }) {
             </thead>
             <tbody>
                 {items.map((item, i) => (
-                    <LocationsRow item={item} key={i} />
+                    <LocationsRow
+                        item={item}
+                        key={i}
+                        setUrl={setUrl}
+                        setReqBody={setReqData}
+                        setMethod={setMethod}
+                    />
                 ))}
             </tbody>
         </table>

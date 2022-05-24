@@ -21,7 +21,14 @@ const Staff = () => {
             <h2>Here is a list of staff in your database.</h2>
             {isLoading && <p>Loading...</p>}
             {!data.length && error && <p>Error :( Please try again</p>}
-            {data.length && <StaffTable items={data} />}
+            {data.length && (
+                <StaffTable
+                    items={data}
+                    setUrl={setUrl}
+                    setReqBody={setReqData}
+                    setMethod={setMethod}
+                />
+            )}
             <AddStaffForm
                 setUrl={setUrl}
                 setReqData={setReqData}

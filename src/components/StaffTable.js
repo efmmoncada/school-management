@@ -1,7 +1,7 @@
 import React from 'react';
 import StaffRow from './StaffRow';
 
-function StaffTable({ items }) {
+function StaffTable({ items, setUrl, setReqBody, setMethod }) {
     return (
         <table className='center_table' id='StaffTable'>
             {/* <caption>List of Staff</caption> */}
@@ -18,7 +18,13 @@ function StaffTable({ items }) {
             </thead>
             <tbody>
                 {items.map((item, i) => (
-                    <StaffRow item={item} key={i} />
+                    <StaffRow
+                        item={item}
+                        key={i}
+                        setUrl={setUrl}
+                        setReqBody={setReqBody}
+                        setMethod={setMethod}
+                    />
                 ))}
             </tbody>
         </table>
