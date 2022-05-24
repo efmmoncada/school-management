@@ -12,7 +12,15 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             class_id: class_id,
         });
         setUrl('http://flip2.engr.oregonstate.edu:6969/hosts');
+
+        setLocationId(0);
+        setClassId(0);
+
         console.log('Submitted');
+    };
+
+    const filterHosts = event => {
+        console.log('searching for hosts');
     };
 
     return (
@@ -20,6 +28,7 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 location_id:
                 <input
+                    value={location_id ? location_id : ''}
                     type='number'
                     className='hosts-location_id-input'
                     onChange={e => setLocationId(e.target.value)}
@@ -28,6 +37,7 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 class_id:
                 <input
+                    value={class_id ? class_id : ''}
                     type='number'
                     className='hosts-class_id-input'
                     onChange={e => setClassId(e.target.value)}
@@ -36,7 +46,11 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             <button type='submit' className='add-hosts-button'>
                 Add hosts
             </button>
-            <button type='submit' className='add-hosts-button'>
+            <button
+                type='button'
+                onClick={filterHosts}
+                className='add-hosts-button'
+            >
                 Search hosts
             </button>
         </form>

@@ -12,7 +12,15 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             class_id: class_id,
         });
         setUrl('http://flip2.engr.oregonstate.edu:6969/enrolled_in');
-        console.log('Submitted');
+
+        setStudentId(0);
+        setClassId(0);
+
+        console.log('Adding entry');
+    };
+
+    const filterEnrolledIn = event => {
+        console.log('searching for enrolled in');
     };
 
     return (
@@ -20,6 +28,7 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 setStudentId:
                 <input
+                    value={student_id ? student_id : ''}
                     type='number'
                     className='enrolled_in-location_id-input'
                     onChange={e => setStudentId(e.target.value)}
@@ -28,6 +37,7 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 class_id:
                 <input
+                    value={class_id ? class_id : ''}
                     type='number'
                     className='enrolled_in-class_id-input'
                     onChange={e => setClassId(e.target.value)}
@@ -36,7 +46,11 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             <button type='submit' className='add-enrolled_in-button'>
                 Add enrolled_in
             </button>
-            <button type='submit' className='add-enrolled_in-button'>
+            <button
+                type='button'
+                onClick={filterEnrolledIn}
+                className='add-enrolled_in-button'
+            >
                 Search enrolled_in
             </button>
         </form>

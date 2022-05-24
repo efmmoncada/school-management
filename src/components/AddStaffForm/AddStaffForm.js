@@ -16,7 +16,17 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             staff_email: email,
         });
         setUrl('http://flip2.engr.oregonstate.edu:6969/staff');
+
+        setName('');
+        setAddress('');
+        setPhone('');
+        setEmail('');
+
         console.log('Submitted');
+    };
+
+    const filterStaff = event => {
+        console.log('searching for staff');
     };
 
     return (
@@ -24,6 +34,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Name:
                 <input
+                    value={name ? name : ''}
                     type='text'
                     className='staff-name-input'
                     onChange={e => setName(e.target.value)}
@@ -32,6 +43,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Address:
                 <input
+                    value={address ? address : ''}
                     type='text'
                     className='staff-address-input'
                     onChange={e => setAddress(e.target.value)}
@@ -40,6 +52,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Phone:
                 <input
+                    value={phone ? phone : ''}
                     type='text'
                     className='staff-phone-input'
                     onChange={e => setPhone(e.target.value)}
@@ -48,6 +61,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Email:
                 <input
+                    value={email ? email : ''}
                     type='email'
                     className='staff-email-input'
                     onChange={e => setEmail(e.target.value)}
@@ -56,7 +70,11 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <button type='submit' className='add-staff-button'>
                 Add Staff
             </button>
-            <button type='submit' className='add-staff-button'>
+            <button
+                type='button'
+                onClick={filterStaff}
+                className='add-staff-button'
+            >
                 Search Staff
             </button>
         </form>

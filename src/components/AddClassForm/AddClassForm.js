@@ -20,7 +20,18 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             class_enrolled: enrolled,
         });
         setUrl('http://flip2.engr.oregonstate.edu:6969/classes');
-        console.log('Submitted');
+        setName('');
+        setCapacity(0);
+        setEnrolled(0);
+        setStaffID(0);
+        setLocationID(0);
+        setStudentID(0);
+
+        console.log('Adding class');
+    };
+
+    const filterStudents = event => {
+        console.log('searching for students');
     };
 
     return (
@@ -28,6 +39,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 location_id:
                 <input
+                    value={location_id ? location_id : ''}
                     type='number'
                     className='class-name-input'
                     onChange={e => setLocationID(e.target.value)}
@@ -36,6 +48,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 student_id:
                 <input
+                    value={student_id ? student_id : ''}
                     type='number'
                     className='class-name-input'
                     onChange={e => setStudentID(e.target.value)}
@@ -44,6 +57,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Staff_id:
                 <input
+                    value={staff_id ? staff_id : ''}
                     type='number'
                     className='class-enrolled-input'
                     onChange={e => setStaffID(e.target.value)}
@@ -52,6 +66,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Name:
                 <input
+                    value={name ? name : ''}
                     type='text'
                     className='class-name-input'
                     onChange={e => setName(e.target.value)}
@@ -60,6 +75,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Capacity:
                 <input
+                    value={capacity ? capacity : ''}
                     type='number'
                     className='class-capacity-input'
                     onChange={e => setCapacity(e.target.value)}
@@ -68,6 +84,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Enrolled:
                 <input
+                    value={enrolled ? enrolled : ''}
                     type='number'
                     className='class-enrolled-input'
                     onChange={e => setEnrolled(e.target.value)}
@@ -76,7 +93,11 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <button type='submit' className='add-class-button'>
                 Add Class
             </button>
-            <button type='submit' className='add-class-button'>
+            <button
+                type='button'
+                onClick={filterStudents}
+                className='add-class-button'
+            >
                 Search Class
             </button>
         </form>
