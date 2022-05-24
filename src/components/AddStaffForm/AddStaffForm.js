@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddStaffForm = ({ setUrl, setReqData }) => {
+const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
@@ -8,6 +8,7 @@ const AddStaffForm = ({ setUrl, setReqData }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        setMethod('POST');
         setReqData({
             staff_name: name,
             staff_address: address,

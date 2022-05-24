@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddClassForm = ({ setUrl, setReqData }) => {
+const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
     const [name, setName] = useState('');
     const [capacity, setCapacity] = useState(0);
     const [enrolled, setEnrolled] = useState(0);
@@ -10,9 +10,10 @@ const AddClassForm = ({ setUrl, setReqData }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        setMethod('POST');
         setReqData({
-            location_id:location_id,
-            student_id:student_id,
+            location_id: location_id,
+            student_id: student_id,
             staff_id: staff_id,
             class_name: name,
             class_capacity: capacity,
@@ -25,7 +26,7 @@ const AddClassForm = ({ setUrl, setReqData }) => {
     return (
         <form className='add-class-form' onSubmit={handleSubmit}>
             <label>
-            location_id:
+                location_id:
                 <input
                     type='number'
                     className='class-name-input'
@@ -33,7 +34,7 @@ const AddClassForm = ({ setUrl, setReqData }) => {
                 />
             </label>
             <label>
-            student_id:
+                student_id:
                 <input
                     type='number'
                     className='class-name-input'

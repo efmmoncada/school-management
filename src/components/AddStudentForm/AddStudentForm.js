@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddStudentForm = ({ setUrl, setReqData }) => {
+const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
@@ -8,6 +8,7 @@ const AddStudentForm = ({ setUrl, setReqData }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        setMethod('POST');
         setReqData({
             class_id: 1,
             student_name: name,

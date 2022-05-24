@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
-const AddEnrolledInForm = ({ setUrl, setReqData }) => {
+const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
     const [student_id, setStudentId] = useState(0);
     const [class_id, setClassId] = useState(0);
 
     const handleSubmit = event => {
         event.preventDefault();
+        setMethod('POST');
         setReqData({
             student_id: student_id,
             class_id: class_id,

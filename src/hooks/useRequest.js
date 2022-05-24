@@ -19,12 +19,13 @@ const createURI = (url, reqData) => {
 const useRequest = initalUrl => {
     const [url, setUrl] = useState(initalUrl);
     const [reqData, setReqData] = useState({});
+    const [method, setMethod] = useState('');
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        async function fetchData(uri, method) {
+        async function fetchData(uri) {
             setLoading(true);
             setError(false);
             try {
@@ -42,13 +43,14 @@ const useRequest = initalUrl => {
             }
             setLoading(false);
         }
-        if (url && Object.keys(reqData).length) {
-            const uri = createURI(url, reqData);
-            console.log(uri);
-            fetchData(uri, 'POST');
-        } else if (url) fetchData(url);
-    }, [url, reqData]);
 
-    return [{ data, isLoading, error }, setUrl, setReqData];
+        if (url && method === 'GET') {
+            fetchData(url);
+        } else if (url && method && Object.keys(reqData).length) {
+            fetchData(createURI(url, reqData));
+        }
+    }, [url, reqData, method]);
+
+    return [{ data, isLoading, error }, setUrl, setReqData, setMethod];
 };
 export default useRequest;

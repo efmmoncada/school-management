@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
-const AddHostsForm = ({ setUrl, setReqData }) => {
+const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
     const [location_id, setLocationId] = useState(0);
     const [class_id, setClassId] = useState(0);
 
     const handleSubmit = event => {
         event.preventDefault();
+        setMethod('POST');
         setReqData({
             location_id: location_id,
             class_id: class_id,

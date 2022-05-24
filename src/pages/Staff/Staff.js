@@ -7,9 +7,11 @@ import useRequest from '../../hooks/useRequest';
 import './Staff.css';
 
 const Staff = () => {
-    const [{ data, isLoading, error }, setUrl, setReqData] = useRequest('');
+    const [{ data, isLoading, error }, setUrl, setReqData, setMethod] =
+        useRequest('');
 
     useEffect(() => {
+        setMethod('GET');
         setUrl('http://flip2.engr.oregonstate.edu:6969/staff');
     });
 
@@ -18,9 +20,13 @@ const Staff = () => {
             <Header title='Staff' />
             <h2>Here is a list of staff in your database.</h2>
             {isLoading && <p>Loading...</p>}
-            {error && <p>Error :( Please try again</p>}
+            {!data.length && error && <p>Error :( Please try again</p>}
             {data.length && <StaffTable items={data} />}
-            <AddStaffForm setUrl={setUrl} setReqData={setReqData} />
+            <AddStaffForm
+                setUrl={setUrl}
+                setReqData={setReqData}
+                setMethod={setMethod}
+            />
         </div>
     );
 };
