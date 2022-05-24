@@ -53,5 +53,5 @@ using pm2 [https://medium.com/idomongodb/how-to-npm-run-start-at-the-background-
 
 ```
 pm2 start app.py --name flask-app --interpreter=python3
-pm2 --name website start npm -- start
+pm2 --name website start npm -- start --watch
 ```
