@@ -24,10 +24,6 @@ const EditPage = () => {
             Object.entries(fields).forEach(([key, value]) => {
                 oldVals[`previous_${key}`] = value.toString();
             });
-            console.info({
-                ...oldVals,
-                ...updatedValues,
-            });
             setReqBody({
                 ...oldVals,
                 ...updatedValues,
