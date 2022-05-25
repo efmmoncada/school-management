@@ -5,12 +5,13 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
     const [gpa, setGpa] = useState(0.0);
+    const [classID, setClassID] = useState(0);
 
     const handleSubmit = event => {
         event.preventDefault();
         setMethod('POST');
         setReqData({
-            class_id: 1,
+            class_id: classID,
             student_name: name,
             student_address: address,
             student_email: email,
@@ -18,6 +19,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
         });
         setUrl('http://flip2.engr.oregonstate.edu:6969/students');
 
+        setClassID(0);
         setName('');
         setAddress('');
         setEmail('');
@@ -32,6 +34,15 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
 
     return (
         <form className='add-student-form' onSubmit={handleSubmit}>
+            <label>
+                ClassID:
+                <input
+                    value={classID ? classID : ''}
+                    type='number'
+                    className='student-classID-input'
+                    onChange={e => setClassID(e.target.value)}
+                />
+            </label>
             <label>
                 Name:
                 <input
