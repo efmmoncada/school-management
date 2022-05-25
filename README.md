@@ -32,14 +32,15 @@ Our database consists of 4 entities:
 
 If you would like to run this app yourself, first clone the repo.
 
-From there, In the project directory, you can run `npm start`
+From there, in the project directory run `npm install` to install the apps dependencies.
+You should now be able to run `npm start`
 
 This will run the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:9191](http://localhost:9191) to view it in your browser.
 
 The page will reload when you make changes.
 
-## Database Configure
+## Database Configuration
 
 ```
 python3 -m venv venv
