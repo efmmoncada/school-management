@@ -17,7 +17,7 @@ function LocationsRow({ item, setUrl, setReqBody, setMethod }) {
             <td>{item.location_id}</td>
             <td>{item.class_id}</td>
             <td>{item.location_num_of_seats}</td>
-            <td>{item.location_accessibility}</td>
+            <td>{item.location_accessibility ? 'Yes' : 'No'}</td>
             <td>{item.location_building}</td>
             <td>
                 <Link
