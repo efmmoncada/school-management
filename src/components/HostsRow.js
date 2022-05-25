@@ -23,6 +23,11 @@ function HostsRow({ item, setUrl, setReqData, setMethod }) {
                     state={{
                         title: 'hosts',
                         fields: { ...item },
+                        primary: {
+                            label: 'Hosts Relationship',
+                            key: '',
+                            value: undefined,
+                        },
                     }}
                 >
                     <MdModeEdit />

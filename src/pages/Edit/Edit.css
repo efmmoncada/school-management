@@ -1,0 +1,25 @@
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.edit-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.edit-buttons {
+    margin-top: 1rem;
+}
+
+input {
+    margin: 0.5rem 0.5rem;
+}

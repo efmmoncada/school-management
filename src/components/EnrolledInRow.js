@@ -23,6 +23,11 @@ function Enrolled_InRow({ item, setUrl, setReqData, setMethod }) {
                     state={{
                         title: 'enrolled_in',
                         fields: { ...item },
+                        primary: {
+                            label: 'Enrolled In Relationship',
+                            key: '',
+                            value: undefined,
+                        },
                     }}
                 >
                     <MdModeEdit />

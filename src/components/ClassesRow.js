@@ -27,6 +27,11 @@ function ClassesRow({ item, setUrl, setReqData, setMethod }) {
                     state={{
                         title: 'classes',
                         fields: { ...item },
+                        primary: {
+                            label: 'Class',
+                            key: 'class_id',
+                            value: item.class_id,
+                        },
                     }}
                 >
                     <MdModeEdit />

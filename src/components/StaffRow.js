@@ -25,6 +25,11 @@ function StaffRow({ item, setUrl, setReqBody, setMethod }) {
                     state={{
                         title: 'staff',
                         fields: { ...item },
+                        primary: {
+                            label: 'Staff ID',
+                            key: 'staff_id',
+                            value: item.staff_id,
+                        },
                     }}
                 >
                     <MdModeEdit />

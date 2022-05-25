@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useLocation, Navigate } from 'react-router-dom';
+import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 
 import useRequest from '../../hooks/useRequest';
 
+import './Edit.css';
+
 const EditPage = () => {
     const location = useLocation();
-    const { title, fields } = location.state;
+    const { title, fields, primary } = location.state;
+    const navigate = useNavigate();
 
     const [updatedValues, setUpdatedValues] = useState(fields);
 
@@ -22,29 +25,47 @@ const EditPage = () => {
         setUrl(`http://flip2.engr.oregonstate.edu:6969/${title}`);
     };
 
+    const handleCancel = e => {
+        e.preventDefault();
+        setUpdatedValues({});
+        navigate(`/${title}`);
+    };
+
     return (
-        <div className='modal'>
-            <div className='modal-header'>
-                <h2>Edit {title}</h2>
-                <Link to={`/${title}`}>&times;</Link>
+        <div className='edit-page'>
+            <div className='edit-header'>
+                <h2>Editing {title}</h2>
             </div>
-            <div className='modal-content'>
-                {Object.entries(fields).map(([key, value]) => (
-                    <input
-                        key={key}
-                        type='text'
-                        name={key}
-                        defaultValue={value}
-                        onChange={e =>
-                            setUpdatedValues(prev => ({
-                                ...prev,
-                                [key]: e.target.value,
-                            }))
-                        }
-                    />
+            <div className='edit-content'>
+                <h3>
+                    You are editing {primary.label}: {primary.value}
+                </h3>
+
+                {Object.entries(fields).map(([key, value], i) => (
+                    <div key={i}>
+                        <label key={`label-${i}`} htmlFor={key}>
+                            {key}
+                        </label>
+                        <input
+                            readOnly={key === primary.key}
+                            id={key}
+                            key={`input-${i}`}
+                            type='text'
+                            name={key}
+                            defaultValue={value}
+                            onChange={e =>
+                                setUpdatedValues(prev => ({
+                                    ...prev,
+                                    [key]: e.target.value,
+                                }))
+                            }
+                        />
+                    </div>
                 ))}
-                <button onClick={() => setUpdatedValues({})}>Cancel</button>
-                <button onClick={submitChanges}>Save</button>
+                <div className='edit-buttons'>
+                    <button onClick={handleCancel}>Cancel</button>
+                    <button onClick={submitChanges}>Save</button>
+                </div>
             </div>
             {Object.keys(data).length && !loading && (
                 <Navigate to={`/${title}`} />

@@ -25,6 +25,11 @@ function LocationsRow({ item, setUrl, setReqBody, setMethod }) {
                     state={{
                         title: 'locations',
                         fields: { ...item },
+                        primary: {
+                            label: 'Location ID',
+                            key: 'location_id',
+                            value: item.location_id,
+                        },
                     }}
                 >
                     <MdModeEdit />

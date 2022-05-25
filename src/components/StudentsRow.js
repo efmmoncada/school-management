@@ -26,6 +26,11 @@ function StudentsRow({ item, setUrl, setReqBody, setMethod }) {
                     state={{
                         title: 'students',
                         fields: { ...item },
+                        primary: {
+                            label: 'Student ID',
+                            key: 'student_id',
+                            value: item.student_id,
+                        },
                     }}
                 >
                     <MdModeEdit />
