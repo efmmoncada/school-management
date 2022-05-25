@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineDelete, MdModeEdit } from 'react-icons/md';
 
 function StudentsRow({ item, setUrl, setReqBody, setMethod }) {
@@ -20,7 +21,15 @@ function StudentsRow({ item, setUrl, setReqBody, setMethod }) {
             <td>{item.student_email}</td>
             <td>{item.student_gpa}</td>
             <td>
-                <MdModeEdit onClick={() => alert('Editing Student Row')} />
+                <Link
+                    to='/edit'
+                    state={{
+                        title: 'students',
+                        fields: { ...item },
+                    }}
+                >
+                    <MdModeEdit />
+                </Link>
             </td>
             <td>
                 <MdOutlineDelete onClick={removeStudent} />

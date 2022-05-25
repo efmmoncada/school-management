@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineDelete, MdModeEdit } from 'react-icons/md';
 
 function StaffRow({ item, setUrl, setReqBody, setMethod }) {
@@ -19,7 +20,15 @@ function StaffRow({ item, setUrl, setReqBody, setMethod }) {
             <td>{item.staff_phone_number}</td>
             <td>{item.staff_email}</td>
             <td>
-                <MdModeEdit onClick={() => alert('Editing Staff Row')} />
+                <Link
+                    to='/edit'
+                    state={{
+                        title: 'staff',
+                        fields: { ...item },
+                    }}
+                >
+                    <MdModeEdit />
+                </Link>
             </td>
             <td>
                 <MdOutlineDelete onClick={removeStaff} />

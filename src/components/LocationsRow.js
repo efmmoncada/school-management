@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineDelete, MdModeEdit } from 'react-icons/md';
 
 function LocationsRow({ item, setUrl, setReqBody, setMethod }) {
@@ -19,7 +20,15 @@ function LocationsRow({ item, setUrl, setReqBody, setMethod }) {
             <td>{item.location_accessibility}</td>
             <td>{item.location_building}</td>
             <td>
-                <MdModeEdit onClick={() => alert('Editing Location Row')} />
+                <Link
+                    to='/edit'
+                    state={{
+                        title: 'locations',
+                        fields: { ...item },
+                    }}
+                >
+                    <MdModeEdit />
+                </Link>
             </td>
             <td>
                 <MdOutlineDelete onClick={removeLocation} />

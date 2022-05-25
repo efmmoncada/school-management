@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineDelete, MdModeEdit } from 'react-icons/md';
 
 function Enrolled_InRow({ item, setUrl, setReqData, setMethod }) {
@@ -17,7 +18,15 @@ function Enrolled_InRow({ item, setUrl, setReqData, setMethod }) {
             <td>{item.student_id}</td>
             <td>{item.class_id}</td>
             <td>
-                <MdModeEdit onClick={() => alert('Editing Location Row')} />
+                <Link
+                    to='/edit'
+                    state={{
+                        title: 'enrolled_in',
+                        fields: { ...item },
+                    }}
+                >
+                    <MdModeEdit />
+                </Link>
             </td>
             <td>
                 <MdOutlineDelete onClick={removeEnrolledIn} />

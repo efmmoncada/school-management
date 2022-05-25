@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineDelete, MdModeEdit } from 'react-icons/md';
 
 function HostsRow({ item, setUrl, setReqData, setMethod }) {
@@ -17,7 +18,15 @@ function HostsRow({ item, setUrl, setReqData, setMethod }) {
             <td>{item.location_id}</td>
             <td>{item.class_id}</td>
             <td>
-                <MdModeEdit onClick={() => alert('Editing Hosts Row')} />
+                <Link
+                    to='/edit'
+                    state={{
+                        title: 'hosts',
+                        fields: { ...item },
+                    }}
+                >
+                    <MdModeEdit />
+                </Link>
             </td>
             <td>
                 <MdOutlineDelete onClick={removeHost} />
