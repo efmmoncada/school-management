@@ -17,7 +17,7 @@ const EditPage = () => {
         useRequest('');
 
     const submitChanges = e => {
-        console.log("clicked");
+        console.log('clicked');
         e.preventDefault();
         setMethod('PUT');
         if (title === 'hosts' || title === 'enrolled_in') {
@@ -31,7 +31,7 @@ const EditPage = () => {
             });
         } else {
             setReqBody({
-                ...updatedValues
+                ...updatedValues,
             });
         }
         setUrl(`http://flip2.engr.oregonstate.edu:6969/${title}`);
@@ -44,7 +44,7 @@ const EditPage = () => {
     };
 
     return (
-        <div className='edit-page'>
+        <form className='edit-page' onSubmit={submitChanges}>
             <div className='edit-header'>
                 <h2>Editing {title}</h2>
             </div>
@@ -61,6 +61,7 @@ const EditPage = () => {
                         <input
                             readOnly={key === primary.key}
                             id={key}
+                            required
                             key={`input-${i}`}
                             type='text'
                             name={key}
@@ -75,14 +76,16 @@ const EditPage = () => {
                     </div>
                 ))}
                 <div className='edit-buttons'>
-                    <button onClick={handleCancel}>Cancel</button>
-                    <button onClick={submitChanges}>Save</button>
+                    <button type='button' onClick={handleCancel}>
+                        Cancel
+                    </button>
+                    <button type='submit'>Save</button>
                 </div>
             </div>
             {Object.keys(data).length && !loading && (
                 <Navigate to={`/${title}`} />
             )}
-        </div>
+        </form>
     );
 };
 
