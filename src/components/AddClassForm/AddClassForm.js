@@ -6,14 +6,12 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
     const [enrolled, setEnrolled] = useState(0);
     const [staff_id, setStaffID] = useState(0);
     const [location_id, setLocationID] = useState(0);
-    const [student_id, setStudentID] = useState(0);
 
     const handleSubmit = event => {
         event.preventDefault();
         setMethod('POST');
         setReqData({
             location_id: location_id,
-            student_id: student_id,
             staff_id: staff_id,
             class_name: name,
             class_capacity: capacity,
@@ -25,7 +23,6 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
         setEnrolled(0);
         setStaffID(0);
         setLocationID(0);
-        setStudentID(0);
 
         console.log('Adding class');
     };
@@ -39,25 +36,16 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 location_id:
                 <input
-                    value={location_id ? location_id : ''}
+                    required value={location_id ? location_id : ''}
                     type='number'
                     className='class-name-input'
                     onChange={e => setLocationID(e.target.value)}
                 />
             </label>
             <label>
-                student_id:
-                <input
-                    value={student_id ? student_id : ''}
-                    type='number'
-                    className='class-name-input'
-                    onChange={e => setStudentID(e.target.value)}
-                />
-            </label>
-            <label>
                 Staff_id:
                 <input
-                    value={staff_id ? staff_id : ''}
+                    required value={staff_id ? staff_id : ''}
                     type='number'
                     className='class-enrolled-input'
                     onChange={e => setStaffID(e.target.value)}
@@ -66,7 +54,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Name:
                 <input
-                    value={name ? name : ''}
+                    required value={name ? name : ''}
                     type='text'
                     className='class-name-input'
                     onChange={e => setName(e.target.value)}
@@ -75,7 +63,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Capacity:
                 <input
-                    value={capacity ? capacity : ''}
+                    required value={capacity ? capacity : ''}
                     type='number'
                     className='class-capacity-input'
                     onChange={e => setCapacity(e.target.value)}
@@ -84,7 +72,7 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Enrolled:
                 <input
-                    value={enrolled ? enrolled : ''}
+                    required value={enrolled ? enrolled : ''}
                     type='number'
                     className='class-enrolled-input'
                     onChange={e => setEnrolled(e.target.value)}

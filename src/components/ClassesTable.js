@@ -9,7 +9,6 @@ function ClassesTable({ items, setUrl, setReqData, setMethod }) {
                 <tr>
                     <th>Class_id</th>
                     <th>Location_id</th>
-                    <th>Student_id</th>
                     <th>Staff_id</th>
                     <th>Class_name</th>
                     <th>Class_capacity</th>

@@ -63,6 +63,7 @@ def get_students():
                 'student_gpa': student_gpa
             } for (student_id, class_id, student_name, student_address, student_email, student_gpa) in cursor.fetchall()]
         }
+        cursor.close()
         return response
 
     elif request.method == 'POST':
@@ -72,8 +73,8 @@ def get_students():
         executeString = "INSERT INTO students (class_id,student_name,student_address,student_email,student_gpa) VALUES"
         cursor = db_connection.cursor()
         args = (request.args).to_dict()
-        args_list = ['class_id','student_name','student_address','student_email','student_gpa']
         executeParameter = "("
+        executeEnrolledIn = "INSERT INTO enrolled_in (class_id,student_id) VALUES ("
         for key, values in args.items():
             if "class_id" in key:
                 formated_values = int(float(values[1:-1]))
@@ -85,6 +86,7 @@ def get_students():
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (curr_class_id + ',')
+                executeEnrolledIn += (curr_class_id + ',')
             else:
                 executeParameter += ( values + ',')
         executeParameter = executeParameter[:-1] + ");"
@@ -94,10 +96,20 @@ def get_students():
         cursor.execute(executeString)
         cursor.close()
         cursor = db_connection.cursor()
+        cursor.execute("SELECT LAST_INSERT_ID();")
+        student_id_retrieved=(str(cursor.fetchone()[0]))
+        cursor.close()
+        # print("last insert id{}".format(student_id_retrieved))
+        executeEnrolledIn+= (student_id_retrieved + ');')
+        # create in enrolled
+
+        cursor = db_connection.cursor()
+        cursor.execute(executeEnrolledIn)
+        cursor.close()
         # db_connection.commit();
 
         # return back the data to populate the table
-
+        cursor = db_connection.cursor()
         cursor.execute("SELECT * FROM students;")
         # db_connection.commit();
         response = {
@@ -110,6 +122,7 @@ def get_students():
                 'student_gpa': student_gpa
             } for (student_id, class_id, student_name, student_address, student_email, student_gpa) in cursor.fetchall()]
         }
+        cursor.close()
         return response
 
     elif request.method == 'PUT':
@@ -121,10 +134,12 @@ def get_students():
         executeString = "UPDATE students SET "
         executeParameter = ""
         executeParameterEnd = " WHERE "
+        executeEnrolledIn = "UPDATE enrolled_in SET "
         for key, values in args.items():
             if "student_id" in key:
                 formated_values = int(float(values[1:-1]))
                 executeParameterEnd += (key + "=" + str(formated_values) + ';')
+                executeEnrolledIn += (key + "=" + str(formated_values) + " WHERE " + key + "=" + str(formated_values) + ';')
             elif "class_id" in key:
                 formated_values = int(float(values[1:-1]))
                 print(formated_values)
@@ -135,6 +150,7 @@ def get_students():
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (key + "=" + values + ',')
+                executeEnrolledIn += (key + "=" + str(formated_values) + ',')
             else:
                 executeParameter += (key + "=" + values + ',')
         # remove the last comma and add WHERE
@@ -144,10 +160,14 @@ def get_students():
         cursor = db_connection.cursor()
         cursor.execute(executeString)
         cursor.close()
+        print(executeEnrolledIn)
         cursor = db_connection.cursor()
+        cursor.execute(executeEnrolledIn)
+        cursor.close()
         # db_connection.commit();
 
         # return back the data to populate the table
+        cursor = db_connection.cursor()
         cursor.execute("SELECT * FROM students;")
         # db_connection.commit();
         response = {
@@ -160,6 +180,7 @@ def get_students():
                 'student_gpa': student_gpa
             } for (student_id, class_id, student_name, student_address, student_email, student_gpa) in cursor.fetchall()]
         }
+        cursor.close()
         return response
 
     elif request.method == 'DELETE':
@@ -170,16 +191,26 @@ def get_students():
         args = (request.args).to_dict()
         executeString = "DELETE from students"
         executeParameterEnd = " WHERE "
+        executeEnrolledIn = "DELETE from enrolled_in WHERE "
+        print(args)
         for key, values in args.items():
             if "student_id" in key:
                 executeParameterEnd += (key + "=" + values + ';')
+                executeEnrolledIn += (key + "=" + values + ' and ')
+            if "class_id" in key:
+                executeEnrolledIn += (key + "=" + values + ';')
         executeString += executeParameterEnd
         print(executeString)
         cursor.execute(executeString)
         cursor.close()
+
         cursor = db_connection.cursor()
+        print(executeEnrolledIn)
+        cursor.execute(executeEnrolledIn)
+        cursor.close()
 
         # return back the data to populate the table
+        cursor = db_connection.cursor()
         cursor.execute("SELECT * FROM students;")
         response = {
             'data': [{
@@ -334,12 +365,11 @@ def get_classes():
             'data': [{
                 'class_id': class_id,
                 'location_id': location_id,
-                'student_id': student_id,
                 'staff_id': staff_id,
                 'class_name': class_name,
                 'class_capacity': class_capacity,
                 'class_num_enrolled': class_num_enrolled,
-            } for (class_id, location_id, student_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
+            } for (class_id, location_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
         }
 
         return response
@@ -406,12 +436,11 @@ def get_classes():
             'data': [{
                 'class_id': class_id,
                 'location_id': location_id,
-                'student_id': student_id,
                 'staff_id': staff_id,
                 'class_name': class_name,
                 'class_capacity': class_capacity,
                 'class_num_enrolled': class_num_enrolled,
-            } for (class_id, location_id, student_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
+            } for (class_id, location_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
         }
 
         return response
@@ -481,12 +510,11 @@ def get_classes():
             'data': [{
                 'class_id': class_id,
                 'location_id': location_id,
-                'student_id': student_id,
                 'staff_id': staff_id,
                 'class_name': class_name,
                 'class_capacity': class_capacity,
                 'class_num_enrolled': class_num_enrolled,
-            } for (class_id, location_id, student_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
+            } for (class_id, location_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
         }
 
         return response
@@ -517,12 +545,11 @@ def get_classes():
             'data': [{
                 'class_id': class_id,
                 'location_id': location_id,
-                'student_id': student_id,
                 'staff_id': staff_id,
                 'class_name': class_name,
                 'class_capacity': class_capacity,
                 'class_num_enrolled': class_num_enrolled,
-            } for (class_id, location_id, student_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
+            } for (class_id, location_id, staff_id, class_name, class_capacity, class_num_enrolled) in cursor.fetchall()]
         }
 
         return response
@@ -745,34 +772,39 @@ def get_enrolled_in():
         '''
         cursor = db_connection.cursor()
         args = (request.args).to_dict()
+        print(args)
         executeString = "UPDATE enrolled_in SET "
         executeParameter = ""
         executeParameterEnd = " WHERE "
         for key, values in args.items():
-            if "student_id" in key:
+            if "student_id" == key:
                 # default into every student with calculus
                 formated_values = int(float(values[1:-1]))
                 print(formated_values)
                 class_id_execute_string = "(SELECT student_id FROM students WHERE student_id = {})".format(
-                    formated_values)
+                    values)
                 cursor = db_connection.cursor()
                 cursor.execute(class_id_execute_string)
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (key + "=" + curr_class_id + ',')
-                executeParameterEnd += (key + "=" + curr_class_id + ';')
-            elif "class_id" in key:
+            elif "class_id" == key:
                 # default into every student with calculus
                 formated_values = int(float(values[1:-1]))
                 print(formated_values)
                 class_id_execute_string = "(SELECT class_id FROM classes WHERE class_id = {})".format(
-                    formated_values)
+                    values)
                 cursor = db_connection.cursor()
                 cursor.execute(class_id_execute_string)
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (key + "=" + curr_class_id + ',')
-                executeParameterEnd += (key + "=" + curr_class_id + ' and ')
+            elif "previous_student_id" == key:
+                # default into every student with calculus
+                executeParameterEnd += (key[9:] + "=" + values + ';')
+            elif "previous_class_id" == key:
+                # default into every student with calculus
+                executeParameterEnd += (key[9:] + "=" + values + ' and ')
         # remove the last comma and add WHERE
         executeParameter = executeParameter[:-1] + executeParameterEnd
         executeString += executeParameter
@@ -909,30 +941,34 @@ def get_hosts():
         executeParameter = ""
         executeParameterEnd = " WHERE "
         for key, values in args.items():
-            if "location_id" in key:
+            if "location_id" == key:
                 # default into every student with calculus
-                formated_values = int(float(values[1:-1]))
-                print(formated_values)
+                # formated_values = int(float(values[1:-1]))
+                # print(formated_values)
                 class_id_execute_string = "(SELECT location_id FROM locations WHERE location_id = {})".format(
-                    formated_values)
+                    values)
                 cursor = db_connection.cursor()
                 cursor.execute(class_id_execute_string)
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (key + "=" + curr_class_id + ',')
-                executeParameterEnd += (key + "=" + curr_class_id + ';')
-            elif "class_id" in key:
+            elif "class_id" == key:
                 # default into every student with calculus
-                formated_values = int(float(values[1:-1]))
-                print(formated_values)
+                # formated_values = int(float(values[1:-1]))
+                # print(formated_values)
                 class_id_execute_string = "(SELECT class_id FROM classes WHERE class_id = {})".format(
-                    formated_values)
+                    values)
                 cursor = db_connection.cursor()
                 cursor.execute(class_id_execute_string)
                 curr_class_id = str(cursor.fetchone()[0])
                 cursor.close()
                 executeParameter += (key + "=" + curr_class_id + ',')
-                executeParameterEnd += (key + "=" + curr_class_id + ' and ')
+            elif "previous_location_id" == key:
+                # default into every student with calculus
+                executeParameterEnd += (key[9:] + "=" + values + ';')
+            elif "previous_class_id" == key:
+                # default into every student with calculus
+                executeParameterEnd += (key[9:] + "=" + values + ' and ')
         # remove the last comma and add WHERE
         executeParameter = executeParameter[:-1] + executeParameterEnd
         executeString += executeParameter

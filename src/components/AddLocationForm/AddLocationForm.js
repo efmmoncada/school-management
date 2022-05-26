@@ -34,7 +34,7 @@ const AddLocationForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Class_ID:
                 <input
-                    value={class_id ? class_id : ''}
+                    required value={class_id ? class_id : ''}
                     type='number'
                     className='class-capacity-input'
                     onChange={e => setClassID(e.target.value)}
@@ -43,7 +43,7 @@ const AddLocationForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Number of Seats:
                 <input
-                    value={numSeats ? numSeats : ''}
+                    required value={numSeats ? numSeats : ''}
                     type='number'
                     className='class-capacity-input'
                     onChange={e => setNumSeats(e.target.value)}
@@ -52,7 +52,7 @@ const AddLocationForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Is Accessible:
                 <input
-                    value={isAccessible ? isAccessible : ''}
+                    required value={isAccessible ? isAccessible : ''}
                     type='checkbox'
                     className='class-enrolled-input'
                     onChange={e => setIsAccessible(e.target.checked)}
@@ -61,7 +61,7 @@ const AddLocationForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Building Name:
                 <input
-                    value={buildingName ? buildingName : ''}
+                    required value={buildingName ? buildingName : ''}
                     type='text'
                     className='class-name-input'
                     onChange={e => setBuildingName(e.target.value)}

@@ -16,7 +16,6 @@ function ClassesRow({ item, setUrl, setReqData, setMethod }) {
         <tr>
             <td>{item.class_id}</td>
             <td>{item.location_id}</td>
-            <td>{item.student_id}</td>
             <td>{item.staff_id}</td>
             <td>{item.class_name}</td>
             <td>{item.class_capacity}</td>

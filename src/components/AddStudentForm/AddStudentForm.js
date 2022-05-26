@@ -37,7 +37,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 ClassID:
                 <input
-                    value={classID ? classID : ''}
+                    required value={classID ? classID : ''}
                     type='number'
                     className='student-classID-input'
                     onChange={e => setClassID(e.target.value)}
@@ -46,7 +46,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Name:
                 <input
-                    value={name ? name : ''}
+                    required value={name ? name : ''}
                     type='text'
                     className='student-name-input'
                     onChange={e => setName(e.target.value)}
@@ -55,7 +55,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Address:
                 <input
-                    value={address ? address : ''}
+                    required value={address ? address : ''}
                     type='text'
                     className='student-address-input'
                     onChange={e => setAddress(e.target.value)}
@@ -64,7 +64,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Email:
                 <input
-                    value={email ? email : ''}
+                    required value={email ? email : ''}
                     type='email'
                     className='student-email-input'
                     onChange={e => setEmail(e.target.value)}
@@ -73,7 +73,7 @@ const AddStudentForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 GPA:
                 <input
-                    value={gpa ? gpa : ''}
+                    required value={gpa ? gpa : ''}
                     type='number'
                     step='0.01'
                     className='student-gpa-input'

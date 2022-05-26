@@ -17,6 +17,7 @@ const EditPage = () => {
         useRequest('');
 
     const submitChanges = e => {
+        console.log("clicked");
         e.preventDefault();
         setMethod('PUT');
         if (title === 'hosts' || title === 'enrolled_in') {
@@ -27,6 +28,10 @@ const EditPage = () => {
             setReqBody({
                 ...oldVals,
                 ...updatedValues,
+            });
+        } else {
+            setReqBody({
+                ...updatedValues
             });
         }
         setUrl(`http://flip2.engr.oregonstate.edu:6969/${title}`);

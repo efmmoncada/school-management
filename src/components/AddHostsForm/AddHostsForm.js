@@ -28,7 +28,7 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 location_id:
                 <input
-                    value={location_id ? location_id : ''}
+                    required value={location_id ? location_id : ''}
                     type='number'
                     className='hosts-location_id-input'
                     onChange={e => setLocationId(e.target.value)}
@@ -37,7 +37,7 @@ const AddHostsForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 class_id:
                 <input
-                    value={class_id ? class_id : ''}
+                    required value={class_id ? class_id : ''}
                     type='number'
                     className='hosts-class_id-input'
                     onChange={e => setClassId(e.target.value)}

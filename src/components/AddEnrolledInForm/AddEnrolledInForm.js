@@ -28,7 +28,7 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 setStudentId:
                 <input
-                    value={student_id ? student_id : ''}
+                    required value={student_id ? student_id : ''}
                     type='number'
                     className='enrolled_in-location_id-input'
                     onChange={e => setStudentId(e.target.value)}
@@ -37,7 +37,7 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 class_id:
                 <input
-                    value={class_id ? class_id : ''}
+                    required value={class_id ? class_id : ''}
                     type='number'
                     className='enrolled_in-class_id-input'
                     onChange={e => setClassId(e.target.value)}

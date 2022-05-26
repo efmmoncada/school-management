@@ -34,7 +34,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Name:
                 <input
-                    value={name ? name : ''}
+                    required value={name ? name : ''}
                     type='text'
                     className='staff-name-input'
                     onChange={e => setName(e.target.value)}
@@ -43,7 +43,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Address:
                 <input
-                    value={address ? address : ''}
+                    required value={address ? address : ''}
                     type='text'
                     className='staff-address-input'
                     onChange={e => setAddress(e.target.value)}
@@ -52,7 +52,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Phone:
                 <input
-                    value={phone ? phone : ''}
+                    required value={phone ? phone : ''}
                     type='text'
                     className='staff-phone-input'
                     onChange={e => setPhone(e.target.value)}
@@ -61,7 +61,7 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
             <label>
                 Email:
                 <input
-                    value={email ? email : ''}
+                    required value={email ? email : ''}
                     type='email'
                     className='staff-email-input'
                     onChange={e => setEmail(e.target.value)}

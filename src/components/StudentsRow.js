@@ -8,6 +8,7 @@ function StudentsRow({ item, setUrl, setReqBody, setMethod }) {
         setMethod('DELETE');
         setReqBody({
             student_id: Number(item.student_id),
+            class_id: Number(item.class_id),
         });
         setUrl(`http://flip2.engr.oregonstate.edu:6969/students`);
     };

@@ -26,9 +26,9 @@ const Header = ({ title }) => {
                 <NavLink to='/enrolled_in' className='navlink'>
                     Enrolled In
                 </NavLink>
-                <NavLink to='/hosts' className='navlink'>
+                {/* <NavLink to='/hosts' className='navlink'>
                     Hosts In
-                </NavLink>
+                </NavLink> */}
             </nav>
         </header>
     );
