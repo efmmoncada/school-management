@@ -36,7 +36,6 @@ CREATE TABLE staff (
 CREATE TABLE classes (
   `class_id` int(11) NOT NULL AUTO_INCREMENT,
   `location_id` int,
-  `student_id` int,
   `staff_id` int,
   `class_name` varchar(35),
   `class_capacity` int(3),
@@ -87,9 +86,6 @@ ALTER TABLE students ADD FOREIGN KEY (`class_id`) REFERENCES classes(`class_id`)
 ALTER TABLE classes ADD FOREIGN KEY (`location_id`) REFERENCES locations(`location_id`)       
   ON DELETE CASCADE
   ON UPDATE CASCADE;
-ALTER TABLE classes ADD FOREIGN KEY (`student_id`) REFERENCES students(`student_id`)       
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
 ALTER TABLE classes ADD FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`)       
   ON DELETE CASCADE
   ON UPDATE CASCADE;
@@ -129,9 +125,12 @@ DESCRIBE hosts;
 -- insert new student
 INSERT INTO students (class_id,student_name,student_address,student_email,student_gpa) 
 VALUES 
-  ((SELECT class_id FROM classes WHERE class_name = "Calculus"),"rhodes , wyatt","7254 mill lane birmingham , cleveland V91 5DL","wyatt.rhodes@example.com",2.16),
-  ((SELECT class_id FROM classes WHERE class_name = "History"),"wilson , bernard","9455 the drive preston , cumbria A6N 9GS","bernard.wilson@example.com",2.56),
-  ((SELECT class_id FROM classes WHERE class_name = "Chemistry"),"beck , todd","7846 chester road wakefield , shropshire U43 3QT","todd.beck@example.com",2.64);
+  ((SELECT class_id FROM classes where class_name = "Calculus"),"rhodes , wyatt","7254 mill lane birmingham , cleveland V91 5DL","wyatt.rhodes@example.com",2.16),
+  ((SELECT class_id FROM classes where class_name = "History"),"wilson , bernard","9455 the drive preston , cumbria A6N 9GS","bernard.wilson@example.com",2.56),
+  ((SELECT class_id FROM classes where class_name = "Chemistry"),"beck , todd","7846 chester road wakefield , shropshire U43 3QT","todd.beck@example.com",2.64),
+  ((SELECT class_id FROM classes where class_name = "Calculus"),"fuck u","Yo Mamas house","fuckU@yoMamasHouse.com",4),
+  ((SELECT class_id FROM classes where class_name = "Calculus"),"mybad","didn't know it actually worked","imsorry@yoMamasHouse.com",0),
+  ((SELECT class_id FROM classes where class_name = "Calculus"),"please delete","im sorry","mybad@mybad.com",1);
 
 -- insert new staff
 INSERT INTO staff (staff_name,staff_address,staff_phone_number,staff_email) 
@@ -141,11 +140,10 @@ VALUES
   ("simpson , harold","4184 grange road wells , hampshire TF60 9PQ","0707-006-496","harold.simpson@example.com");
 
 -- insert a new class
-INSERT INTO classes (location_id,student_id,staff_id,class_name,class_capacity,class_num_enrolled) 
+INSERT INTO classes (location_id,staff_id,class_name,class_capacity,class_num_enrolled) 
 VALUES
   (
     (SELECT location_id FROM locations WHERE location_building = "Empire State Building"),
-    (SELECT student_id FROM students WHERE student_name = "rhodes , wyatt"),
     (SELECT staff_id FROM staff WHERE staff_name = "oliver , sarah"),
     "Calculus",
     42,
@@ -153,7 +151,6 @@ VALUES
   ),
   (
     (SELECT location_id FROM locations WHERE location_building = "Sears Tower"),
-    (SELECT student_id FROM students WHERE student_name = "wilson , bernard"),
     (SELECT staff_id FROM staff WHERE staff_name = "cole , julie"),
     "History",
     25,
@@ -161,7 +158,6 @@ VALUES
   ),
   (
     (SELECT location_id FROM locations WHERE location_building = "Eiffel Tower"),
-    (SELECT student_id FROM students WHERE student_name = "beck , todd"),
     (SELECT staff_id FROM staff WHERE staff_name = "simpson , harold"),
     "Chemistry",
     49,
@@ -205,24 +201,6 @@ VALUES
     (SELECT location_id FROM locations WHERE location_building = "Eiffel Tower"),
     (SELECT class_id FROM classes WHERE class_name = "Chemistry")
 );
--- insert a new hosts
-INSERT INTO hosts() 
-VALUES 
-(
-    (SELECT student_id FROM students WHERE student_name = "rhodes , wyatt"),
-    (SELECT staff_id FROM staff WHERE staff_name = "oliver , sarah")
-),
-(
-    (SELECT student_id FROM students WHERE student_name = "wilson , bernard"),
-    (SELECT staff_id FROM staff WHERE staff_name = "cole , julie")
-),
-(
-    (SELECT student_id FROM students WHERE student_name = "beck , todd"),
-    (SELECT staff_id FROM staff WHERE staff_name = "simpson , harold")
-);
-
-
-
 
 SELECT * FROM students;
 SELECT * FROM staff;
