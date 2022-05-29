@@ -54,7 +54,7 @@ const EditPage = () => {
                 </h3>
 
                 {Object.entries(fields).map(([key, value], i) => (
-                    <div key={i}>
+                    <div className='edit-field' key={i}>
                         <label key={`label-${i}`} htmlFor={key}>
                             {key}
                         </label>
@@ -75,7 +75,7 @@ const EditPage = () => {
                         />
                     </div>
                 ))}
-                <div className='edit-buttons'>
+                <div className='buttons'>
                     <button type='button' onClick={handleCancel}>
                         Cancel
                     </button>

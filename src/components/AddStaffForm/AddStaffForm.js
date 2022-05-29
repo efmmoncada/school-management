@@ -31,52 +31,60 @@ const AddStaffForm = ({ setUrl, setReqData, setMethod }) => {
 
     return (
         <form className='add-staff-form' onSubmit={handleSubmit}>
-            <label>
-                Name:
-                <input
-                    required value={name ? name : ''}
-                    type='text'
-                    className='staff-name-input'
-                    onChange={e => setName(e.target.value)}
-                />
-            </label>
-            <label>
-                Address:
-                <input
-                    required value={address ? address : ''}
-                    type='text'
-                    className='staff-address-input'
-                    onChange={e => setAddress(e.target.value)}
-                />
-            </label>
-            <label>
-                Phone:
-                <input
-                    required value={phone ? phone : ''}
-                    type='text'
-                    className='staff-phone-input'
-                    onChange={e => setPhone(e.target.value)}
-                />
-            </label>
-            <label>
-                Email:
-                <input
-                    required value={email ? email : ''}
-                    type='email'
-                    className='staff-email-input'
-                    onChange={e => setEmail(e.target.value)}
-                />
-            </label>
-            <button type='submit' className='add-staff-button'>
-                Add Staff
-            </button>
-            <button
-                type='button'
-                onClick={filterStaff}
-                className='add-staff-button'
-            >
-                Search Staff
-            </button>
+            <div className='fields'>
+                <label>
+                    <input
+                        required
+                        value={name ? name : ''}
+                        type='text'
+                        className='staff-name-input'
+                        onChange={e => setName(e.target.value)}
+                    />
+                    Name
+                </label>
+                <label>
+                    <input
+                        required
+                        value={address ? address : ''}
+                        type='text'
+                        className='staff-address-input'
+                        onChange={e => setAddress(e.target.value)}
+                    />
+                    Address
+                </label>
+                <label>
+                    <input
+                        required
+                        value={phone ? phone : ''}
+                        type='text'
+                        className='staff-phone-input'
+                        onChange={e => setPhone(e.target.value)}
+                    />
+                    Phone
+                </label>
+                <label>
+                    <input
+                        required
+                        value={email ? email : ''}
+                        type='email'
+                        className='staff-email-input'
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    Email
+                </label>
+            </div>
+            <div className='buttons'>
+                <button type='submit' className='add-staff-button'>
+                    Add Staff
+                </button>
+                <button
+                    type='button'
+                    onClick={filterStaff}
+                    className='add-staff-button'
+                >
+                    Search Staff
+                </button>
+            </div>
         </form>
     );
 };

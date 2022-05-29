@@ -31,52 +31,60 @@ const AddLocationForm = ({ setUrl, setReqData, setMethod }) => {
 
     return (
         <form className='add-class-form' onSubmit={handleSubmit}>
-            <label>
-                Class_ID:
-                <input
-                    required value={class_id ? class_id : ''}
-                    type='number'
-                    className='class-capacity-input'
-                    onChange={e => setClassID(e.target.value)}
-                />
-            </label>
-            <label>
-                Number of Seats:
-                <input
-                    required value={numSeats ? numSeats : ''}
-                    type='number'
-                    className='class-capacity-input'
-                    onChange={e => setNumSeats(e.target.value)}
-                />
-            </label>
-            <label>
-                Is Accessible:
-                <input
-                    required value={isAccessible ? isAccessible : ''}
-                    type='checkbox'
-                    className='class-enrolled-input'
-                    onChange={e => setIsAccessible(e.target.checked)}
-                />
-            </label>
-            <label>
-                Building Name:
-                <input
-                    required value={buildingName ? buildingName : ''}
-                    type='text'
-                    className='class-name-input'
-                    onChange={e => setBuildingName(e.target.value)}
-                />
-            </label>
-            <button type='submit' className='add-class-button'>
-                Add Location
-            </button>
-            <button
-                type='button'
-                onClick={filterLocations}
-                className='add-class-button'
-            >
-                Search Location
-            </button>
+            <div className='fields'>
+                <label>
+                    <input
+                        required
+                        value={class_id ? class_id : ''}
+                        type='number'
+                        className='class-capacity-input'
+                        onChange={e => setClassID(e.target.value)}
+                    />
+                    Class_ID
+                </label>
+                <label>
+                    <input
+                        required
+                        value={numSeats ? numSeats : ''}
+                        type='number'
+                        className='class-capacity-input'
+                        onChange={e => setNumSeats(e.target.value)}
+                    />
+                    Number of Seats
+                </label>
+                <label>
+                    <input
+                        required
+                        value={isAccessible ? isAccessible : ''}
+                        type='checkbox'
+                        className='class-enrolled-input'
+                        onChange={e => setIsAccessible(e.target.checked)}
+                    />
+                    Is Accessible
+                </label>
+                <label>
+                    <input
+                        required
+                        value={buildingName ? buildingName : ''}
+                        type='text'
+                        className='class-name-input'
+                        onChange={e => setBuildingName(e.target.value)}
+                    />
+                    Building Name
+                </label>
+            </div>
+            <div className='buttons'>
+                <button type='submit' className='add-class-button'>
+                    Add Location
+                </button>
+                <button
+                    type='button'
+                    onClick={filterLocations}
+                    className='add-class-button'
+                >
+                    Search Location
+                </button>
+            </div>
         </form>
     );
 };

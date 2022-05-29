@@ -16,10 +16,12 @@
     gap: 1rem;
 }
 
-.edit-buttons {
-    margin-top: 1rem;
-}
-
 input {
     margin: 0.5rem 0.5rem;
+}
+
+.edit-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

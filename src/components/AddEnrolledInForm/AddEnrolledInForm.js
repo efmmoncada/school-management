@@ -25,34 +25,40 @@ const AddEnrolledInForm = ({ setUrl, setReqData, setMethod }) => {
 
     return (
         <form className='add-enrolled_in-form' onSubmit={handleSubmit}>
-            <label>
-                setStudentId:
-                <input
-                    required value={student_id ? student_id : ''}
-                    type='number'
-                    className='enrolled_in-location_id-input'
-                    onChange={e => setStudentId(e.target.value)}
-                />
-            </label>
-            <label>
-                class_id:
-                <input
-                    required value={class_id ? class_id : ''}
-                    type='number'
-                    className='enrolled_in-class_id-input'
-                    onChange={e => setClassId(e.target.value)}
-                />
-            </label>
-            <button type='submit' className='add-enrolled_in-button'>
-                Add enrolled_in
-            </button>
-            <button
-                type='button'
-                onClick={filterEnrolledIn}
-                className='add-enrolled_in-button'
-            >
-                Search enrolled_in
-            </button>
+            <div className='fields'>
+                <label>
+                    <input
+                        required
+                        value={student_id ? student_id : ''}
+                        type='number'
+                        className='enrolled_in-location_id-input'
+                        onChange={e => setStudentId(e.target.value)}
+                    />
+                    setStudentId
+                </label>
+                <label>
+                    <input
+                        required
+                        value={class_id ? class_id : ''}
+                        type='number'
+                        className='enrolled_in-class_id-input'
+                        onChange={e => setClassId(e.target.value)}
+                    />
+                    class_id
+                </label>
+            </div>
+            <div className='buttons'>
+                <button type='submit' className='add-enrolled_in-button'>
+                    Add enrolled_in
+                </button>
+                <button
+                    type='button'
+                    onClick={filterEnrolledIn}
+                    className='add-enrolled_in-button'
+                >
+                    Search enrolled_in
+                </button>
+            </div>
         </form>
     );
 };

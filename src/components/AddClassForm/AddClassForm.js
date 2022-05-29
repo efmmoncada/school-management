@@ -33,61 +33,70 @@ const AddClassForm = ({ setUrl, setReqData, setMethod }) => {
 
     return (
         <form className='add-class-form' onSubmit={handleSubmit}>
-            <label>
-                location_id:
-                <input
-                    required value={location_id ? location_id : ''}
-                    type='number'
-                    className='class-name-input'
-                    onChange={e => setLocationID(e.target.value)}
-                />
-            </label>
-            <label>
-                Staff_id:
-                <input
-                    required value={staff_id ? staff_id : ''}
-                    type='number'
-                    className='class-enrolled-input'
-                    onChange={e => setStaffID(e.target.value)}
-                />
-            </label>
-            <label>
-                Name:
-                <input
-                    required value={name ? name : ''}
-                    type='text'
-                    className='class-name-input'
-                    onChange={e => setName(e.target.value)}
-                />
-            </label>
-            <label>
-                Capacity:
-                <input
-                    required value={capacity ? capacity : ''}
-                    type='number'
-                    className='class-capacity-input'
-                    onChange={e => setCapacity(e.target.value)}
-                />
-            </label>
-            <label>
-                Enrolled:
-                <input
-                    required value={enrolled ? enrolled : ''}
-                    type='number'
-                    className='class-enrolled-input'
-                    onChange={e => setEnrolled(e.target.value)}
-                />
-            </label>
-            <button type='submit' className='add-class-button'>
-                Add Class
-            </button>
-            <button
-                type='button'
-                onClick={filterStudents}
-                className='add-class-button'
-            >
-                Search Class
-            </button>
+            <div className='fields'>
+                <label>
+                    <input
+                        required
+                        value={location_id ? location_id : ''}
+                        type='number'
+                        className='class-name-input'
+                        onChange={e => setLocationID(e.target.value)}
+                    />
+                    location_id
+                </label>
+                <label>
+                    <input
+                        required
+                        value={staff_id ? staff_id : ''}
+                        type='number'
+                        className='class-enrolled-input'
+                        onChange={e => setStaffID(e.target.value)}
+                    />
+                    Staff_id
+                </label>
+                <label>
+                    <input
+                        required
+                        value={name ? name : ''}
+                        type='text'
+                        className='class-name-input'
+                        onChange={e => setName(e.target.value)}
+                    />
+                    Name
+                </label>
+                <label>
+                    <input
+                        required
+                        value={capacity ? capacity : ''}
+                        type='number'
+                        className='class-capacity-input'
+                        onChange={e => setCapacity(e.target.value)}
+                    />
+                    Capacity
+                </label>
+                <label>
+                    <input
+                        required
+                        value={enrolled ? enrolled : ''}
+                        type='number'
+                        className='class-enrolled-input'
+                        onChange={e => setEnrolled(e.target.value)}
+                    />
+                    Enrolled
+                </label>
+            </div>
+            <div className='buttons'>
+                <button type='submit' className='add-class-button'>
+                    Add Class
+                </button>
+                <button
+                    type='button'
+                    onClick={filterStudents}
+                    className='add-class-button'
+                >
+                    Search Class
+                </button>
+            </div>
         </form>
     );
 };
