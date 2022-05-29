@@ -127,10 +127,7 @@ INSERT INTO students (class_id,student_name,student_address,student_email,studen
 VALUES 
   ((SELECT class_id FROM classes where class_name = "Calculus"),"rhodes , wyatt","7254 mill lane birmingham , cleveland V91 5DL","wyatt.rhodes@example.com",2.16),
   ((SELECT class_id FROM classes where class_name = "History"),"wilson , bernard","9455 the drive preston , cumbria A6N 9GS","bernard.wilson@example.com",2.56),
-  ((SELECT class_id FROM classes where class_name = "Chemistry"),"beck , todd","7846 chester road wakefield , shropshire U43 3QT","todd.beck@example.com",2.64),
-  ((SELECT class_id FROM classes where class_name = "Calculus"),"fuck u","Yo Mamas house","fuckU@yoMamasHouse.com",4),
-  ((SELECT class_id FROM classes where class_name = "Calculus"),"mybad","didn't know it actually worked","imsorry@yoMamasHouse.com",0),
-  ((SELECT class_id FROM classes where class_name = "Calculus"),"please delete","im sorry","mybad@mybad.com",1);
+  ((SELECT class_id FROM classes where class_name = "Chemistry"),"beck , todd","7846 chester road wakefield , shropshire U43 3QT","todd.beck@example.com",2.64);
 
 -- insert new staff
 INSERT INTO staff (staff_name,staff_address,staff_phone_number,staff_email) 
