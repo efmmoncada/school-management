@@ -36,8 +36,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 config_info = read_mysql_config("./db_login_serm.js")
 db_connection = connect_to_database(config_info)
 cursor = db_connection.cursor()
-cursor.execute("SET SESSION wait_timeout=604800")
-cursor.execute("SET SESSION interactive_timeout=604800")
+cursor.execute("SET SESSION wait_timeout=31536000")
+cursor.execute("SET SESSION interactive_timeout=31536000")
 cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
 cursor.connection.autocommit(True)
 
@@ -378,7 +378,7 @@ def get_classes():
         '''
         post request, create a new class
         '''
-        executeString = "INSERT INTO classes (location_id,student_id,staff_id,class_name,class_capacity,class_num_enrolled) VALUES"
+        executeString = "INSERT INTO classes (location_id,staff_id,class_name,class_capacity,class_num_enrolled) VALUES"
         cursor = db_connection.cursor()
         args = (request.args).to_dict()
         executeParameter = "("
